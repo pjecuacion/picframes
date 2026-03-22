@@ -1,0 +1,387 @@
+END USER LICENSE AGREEMENT
+Bulk WebP — Version 1.0
+Effective Date: March 20, 2026
+
+================================================================================
+IMPORTANT — READ CAREFULLY BEFORE INSTALLING OR USING THIS SOFTWARE
+================================================================================
+
+This End User License Agreement ("Agreement") is a legally binding contract
+between you, either an individual or a single legal entity ("User" or "you"),
+and pjecuacion ("Developer", "we", "us", or "our") governing your use of the
+Bulk WebP software application and any associated documentation ("Software").
+
+BY CLICKING "I AGREE", BY DOWNLOADING, INSTALLING, COPYING, OR USING THE
+SOFTWARE IN ANY WAY, YOU ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT,
+UNDERSTAND IT, AND AGREE TO BE BOUND BY ITS TERMS AND CONDITIONS.
+
+IF YOU DO NOT AGREE TO ALL OF THE TERMS OF THIS AGREEMENT, DO NOT DOWNLOAD,
+INSTALL, OR USE THE SOFTWARE. IF YOU HAVE ALREADY DOWNLOADED THE SOFTWARE,
+DELETE IT IMMEDIATELY.
+
+IF YOU ARE ACCEPTING THIS AGREEMENT ON BEHALF OF AN ORGANISATION OR OTHER
+LEGAL ENTITY, YOU REPRESENT THAT YOU HAVE THE AUTHORITY TO BIND THAT ENTITY.
+
+
+1. DEFINITIONS
+================================================================================
+"Personal Edition" means the free tier of the Software.
+"Pro Edition" means the paid, commercially licensed tier of the Software.
+"License Key" means the unique alphanumeric code issued upon purchase of a Pro
+  Edition license.
+"Permitted Device" means a computer system owned or controlled by you.
+"Output Files" means the WebP image files produced by your use of the Software.
+"Source Files" means the image files you supply to the Software for processing.
+"Effective Date" means the earlier of the date you first download, install, or
+  use the Software.
+
+
+2. LICENSE GRANT
+================================================================================
+Subject to your compliance with all terms of this Agreement, the Developer
+grants you a limited, non-exclusive, non-transferable, non-sublicensable,
+revocable license to install and use the Software as follows:
+
+2.1 Personal Edition
+  (a) Permitted for one (1) natural person for personal, non-commercial use
+      only.
+  (b) Installation on up to two (2) Permitted Devices owned by that person.
+  (c) Commercial use, business use, or use generating direct or indirect
+      revenue is PROHIBITED without a Pro Edition license.
+
+2.2 Pro Edition
+  (a) Permitted for one (1) natural person or one (1) legal entity for any
+      lawful purpose including commercial use.
+  (b) Installation on up to two (2) Permitted Devices owned or controlled
+      by the licensee.
+  (c) The License Key is personal to the licensee and may not be shared,
+      resold, sublicensed, or transferred without prior written consent
+      from the Developer.
+
+2.3 No Other Rights
+  No rights are granted beyond those expressly stated in Section 2. All rights
+  not expressly granted are reserved by the Developer.
+
+
+3. RESTRICTIONS
+================================================================================
+You expressly agree that you will NOT:
+
+  (a) Distribute, publish, sublicense, sell, resell, transfer, rent, lease,
+      assign, or otherwise make the Software available to any third party.
+
+  (b) Reverse engineer, disassemble, decompile, decode, adapt, translate, or
+      attempt to derive the source code of the Software, except only to the
+      extent any of the foregoing is permitted by applicable law and cannot
+      be contractually restricted.
+
+  (c) Modify, alter, tamper with, repair, or create derivative works of the
+      Software without the Developer's prior written consent.
+
+  (d) Access or use the Software to build a product or service that competes
+      with the Software.
+
+  (e) Remove, disable, circumvent, or modify any security control, copy-
+      protection, digital rights management, or proprietary notice in the
+      Software.
+
+  (f) Use the Software to process Source Files that you do not have the legal
+      right to reproduce, modify, or distribute.
+
+  (g) Use the Software for any purpose that is unlawful or prohibited by this
+      Agreement, or in any manner that could damage, disable, overburden, or
+      impair the Software or interfere with any other party's use.
+
+  (h) Share, publish, or distribute your License Key.
+
+  (i) Use the Personal Edition for any commercial purpose.
+
+
+4. OWNERSHIP & INTELLECTUAL PROPERTY
+================================================================================
+4.1 The Software is licensed, not sold. This Agreement does not transfer any
+    ownership rights to you.
+
+4.2 The Developer retains all right, title, and interest in and to the
+    Software, including all intellectual property rights therein (copyright,
+    patent, trade secret, and any other proprietary rights), whether or not
+    specifically recognised or perfected under applicable law.
+
+4.3 Your Output Files remain your property. The Developer claims no ownership
+    interest in files you produce using the Software.
+
+4.4 You acknowledge that the Software contains valuable trade secrets and
+    confidential information belonging to the Developer.
+
+4.5 This Agreement does not grant you any rights to use the Developer's name,
+    logo, trademarks, or service marks for any purpose.
+
+
+5. PRIVACY & DATA PROCESSING
+================================================================================
+5.1 Local Processing
+    The Software processes all Source Files entirely on your local machine.
+    Your images, file paths, folder names, and Output Files are never
+    transmitted to the Developer, to any server operated by the Developer,
+    or to any third party.
+
+5.2 License Validation
+    If you activate a Pro Edition license, the License Key you supply is
+    transmitted to the Developer's third-party licensing provider (currently
+    LemonSqueezy, Inc.) solely to verify the key's authenticity and
+    activation status. No Source Files, Output Files, or personally
+    identifying information beyond the key itself are transmitted during
+    this process.
+
+5.3 No Telemetry
+    The Developer does not collect, transmit, or store telemetry, analytics,
+    usage statistics, crash reports, or any other data about your use of the
+    Software.
+
+5.4 Third-Party Services
+    The licensing validation service (LemonSqueezy) is subject to its own
+    privacy policy and terms of service, which are independent of this
+    Agreement.
+
+
+6. DISCLAIMER OF WARRANTIES
+================================================================================
+TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW:
+
+THE SOFTWARE IS PROVIDED "AS IS", "AS AVAILABLE", AND "WITH ALL FAULTS",
+WITHOUT WARRANTY OF ANY KIND, EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE.
+
+THE DEVELOPER, ITS LICENSORS, AND ITS SUPPLIERS EXPRESSLY DISCLAIM ALL
+WARRANTIES, INCLUDING WITHOUT LIMITATION:
+
+  (a) ANY IMPLIED WARRANTY OF MERCHANTABILITY, SATISFACTORY QUALITY, FITNESS
+      FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT;
+
+  (b) ANY WARRANTY THAT THE SOFTWARE WILL MEET YOUR REQUIREMENTS OR
+      EXPECTATIONS;
+
+  (c) ANY WARRANTY THAT THE SOFTWARE WILL OPERATE WITHOUT INTERRUPTION,
+      BE TIMELY, SECURE, ERROR-FREE, OR FREE OF VIRUSES OR OTHER HARMFUL
+      COMPONENTS;
+
+  (d) ANY WARRANTY THAT THE RESULTS OBTAINED FROM USING THE SOFTWARE WILL BE
+      ACCURATE, RELIABLE, COMPLETE, OR CURRENT;
+
+  (e) ANY WARRANTY THAT DEFECTS OR ERRORS IN THE SOFTWARE WILL BE CORRECTED.
+
+YOU ASSUME THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE.
+SHOULD THE SOFTWARE PROVE DEFECTIVE, YOU ASSUME THE ENTIRE COST OF ALL
+NECESSARY SERVICING, REPAIR, OR CORRECTION.
+
+NO ORAL OR WRITTEN INFORMATION OR ADVICE GIVEN BY THE DEVELOPER OR ITS
+AUTHORISED REPRESENTATIVE SHALL CREATE A WARRANTY. YOU MAY HAVE ADDITIONAL
+CONSUMER RIGHTS UNDER LOCAL LAW THAT THIS AGREEMENT CANNOT OVERRIDE.
+
+
+7. LIMITATION OF LIABILITY
+================================================================================
+7.1 EXCLUSION OF CONSEQUENTIAL DAMAGES
+    TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE
+    DEVELOPER, ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, LICENSORS, OR
+    SERVICE PROVIDERS BE LIABLE FOR ANY:
+
+      (a) INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, PUNITIVE, OR CONSEQUENTIAL
+          DAMAGES OF ANY KIND;
+      (b) LOSS OF PROFITS, REVENUE, DATA, GOODWILL, BUSINESS, OR ANTICIPATED
+          SAVINGS;
+      (c) LOSS OF OR DAMAGE TO DATA, IMAGES, OR FILES (INCLUDING SOURCE FILES
+          AND OUTPUT FILES);
+      (d) BUSINESS INTERRUPTION OR DISRUPTION;
+      (e) COST OF SUBSTITUTE GOODS OR SERVICES;
+      (f) COMPUTER FAILURE OR MALFUNCTION;
+
+    ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT OR THE USE OF OR
+    INABILITY TO USE THE SOFTWARE, HOWEVER CAUSED, UNDER ANY THEORY OF
+    LIABILITY (CONTRACT, TORT, STRICT LIABILITY, OR OTHERWISE), EVEN IF THE
+    DEVELOPER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+7.2 AGGREGATE LIABILITY CAP
+    THE DEVELOPER'S TOTAL AGGREGATE LIABILITY TO YOU FOR ALL CLAIMS ARISING
+    OUT OF OR RELATING TO THIS AGREEMENT OR THE SOFTWARE — WHETHER IN CONTRACT,
+    TORT, OR OTHERWISE — SHALL NOT EXCEED THE GREATER OF:
+      (a) THE TOTAL AMOUNT PAID BY YOU FOR THE SOFTWARE IN THE TWELVE (12)
+          MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM; OR
+      (b) TWENTY US DOLLARS (USD $20.00).
+
+7.3 BASIS OF THE BARGAIN
+    THE PARTIES ACKNOWLEDGE THAT THE DEVELOPER HAS SET ITS PRICES AND ENTERED
+    INTO THIS AGREEMENT IN RELIANCE UPON THE LIMITATIONS OF LIABILITY AND THE
+    DISCLAIMERS OF WARRANTIES STATED HEREIN, AND THAT THESE FORM AN ESSENTIAL
+    BASIS OF THE BARGAIN BETWEEN THE PARTIES.
+
+7.4 SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR
+    THE LIMITATION OR EXCLUSION OF LIABILITY FOR CERTAIN CATEGORIES OF
+    DAMAGES. IN SUCH JURISDICTIONS, THE DEVELOPER'S LIABILITY SHALL BE LIMITED
+    TO THE MAXIMUM EXTENT PERMITTED BY LAW.
+
+
+8. INDEMNIFICATION
+================================================================================
+You agree to indemnify, defend (at the Developer's option), and hold harmless
+the Developer and its officers, directors, employees, contractors, agents,
+licensors, and successors from and against any and all claims, liabilities,
+damages, judgments, awards, losses, costs, and expenses (including reasonable
+legal fees and court costs) arising out of or relating to:
+
+  (a) Your use of or inability to use the Software;
+  (b) Your breach or alleged breach of any provision of this Agreement;
+  (c) Your violation of any applicable law, regulation, or third-party right,
+      including any intellectual property right or privacy right;
+  (d) Any claim that your Source Files or your use of the Software caused harm
+      to a third party;
+  (e) Any misrepresentation made by you.
+
+The Developer reserves the right to assume exclusive control of the defence of
+any matter otherwise subject to indemnification by you, at your expense.
+
+
+9. TERMINATION
+================================================================================
+9.1 By User
+    You may terminate this Agreement at any time by permanently deleting all
+    copies of the Software from all your devices.
+
+9.2 By Developer — With Cause
+    The Developer may terminate this Agreement immediately and without notice
+    if you materially breach any term of this Agreement, including but not
+    limited to the restrictions in Section 3 or the misuse of a License Key.
+
+9.3 Effect of Termination
+    Upon termination for any reason:
+      (a) All licenses granted to you under this Agreement immediately cease;
+      (b) You must destroy all copies of the Software and your License Key
+          (if any) in your possession or control;
+      (c) Termination does not entitle you to a refund of any fees paid,
+          except as required by applicable consumer protection law.
+
+9.4 Survival
+    Sections 4, 6, 7, 8, 11, 12, 13, and 14 survive any expiration or
+    termination of this Agreement.
+
+
+10. UPDATES, MODIFICATIONS & SUPPORT
+================================================================================
+10.1 The Developer may, at its sole discretion, release updates, patches, or
+     new versions of the Software. This Agreement applies to all such updates
+     unless a separate agreement accompanies them.
+
+10.2 The Developer is under no obligation to provide updates, maintenance,
+     technical support, or bug fixes under the Personal Edition. Pro Edition
+     support, if any, is as described on the Developer's website at the time
+     of purchase.
+
+10.3 The Developer may modify the features or functionality of the Software at
+     any time without liability to you.
+
+10.4 The Developer reserves the right to modify this Agreement at any time.
+     Continued use of the Software after the effective date of a revised
+     Agreement constitutes acceptance of the revised terms. Material changes
+     will be communicated via the Software or the Developer's website.
+
+
+11. DISPUTE RESOLUTION
+================================================================================
+11.1 Informal Resolution
+     Before initiating any formal proceeding, you agree to first contact the
+     Developer at the address in Section 14 and attempt to resolve the dispute
+     informally for at least thirty (30) days.
+
+11.2 Binding Arbitration
+     Any dispute, controversy, or claim arising out of or relating to this
+     Agreement, or the breach, termination, or validity thereof, that cannot
+     be resolved informally under Section 11.1 shall be finally settled by
+     binding arbitration administered by a recognised arbitration body in the
+     Developer's jurisdiction under its applicable rules. Arbitration shall be
+     conducted in English by a single arbitrator. The arbitrator's decision
+     shall be final and binding and may be entered as a judgment in any court
+     of competent jurisdiction.
+
+11.3 Class Action Waiver
+     TO THE EXTENT PERMITTED BY LAW, YOU WAIVE YOUR RIGHT TO PARTICIPATE AS
+     A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS ACTION, COLLECTIVE
+     ACTION, OR REPRESENTATIVE PROCEEDING. The arbitrator may not consolidate
+     your claims with those of any other person.
+
+11.4 Injunctive Relief
+     Notwithstanding Sections 11.2 and 11.3, either party may seek injunctive
+     or other equitable relief in any court of competent jurisdiction to
+     prevent the actual or threatened infringement, misappropriation, or
+     violation of intellectual property rights or confidential information.
+
+11.5 Time Limitation on Claims
+     ANY CLAIM ARISING OUT OF OR RELATED TO THIS AGREEMENT MUST BE BROUGHT
+     WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ARISES, OR IT IS
+     PERMANENTLY WAIVED AND BARRED.
+
+
+12. GOVERNING LAW
+================================================================================
+This Agreement shall be governed by and construed in accordance with the laws
+of the jurisdiction in which the Developer is domiciled, without giving effect
+to any choice-of-law or conflict-of-law rules that would cause the application
+of any other jurisdiction's laws.
+
+
+13. GENERAL PROVISIONS
+================================================================================
+13.1 Severability
+     If any provision of this Agreement is held invalid, illegal, or
+     unenforceable, it shall be modified to the minimum extent necessary to
+     make it enforceable. All remaining provisions continue in full force.
+
+13.2 Waiver
+     No failure or delay by the Developer in exercising any right constitutes
+     a waiver of that right. No waiver of any breach constitutes a waiver of
+     any subsequent breach.
+
+13.3 Entire Agreement
+     This Agreement constitutes the entire agreement between you and the
+     Developer with respect to the Software and supersedes all prior
+     understandings, representations, and agreements, written or oral.
+
+13.4 Assignment
+     You may not assign or transfer this Agreement or any rights hereunder
+     without prior written consent from the Developer. The Developer may
+     assign this Agreement freely. Any purported assignment in violation of
+     this section is null and void.
+
+13.5 Force Majeure
+     The Developer shall not be liable for any failure or delay in performance
+     due to causes beyond its reasonable control, including acts of God, fire,
+     flood, natural disaster, epidemic or pandemic, war, terrorism, riot,
+     governmental action, or failure of third-party internet infrastructure.
+
+13.6 Export Compliance
+     You agree to comply with all applicable export control laws. You represent
+     that you are not located in, or a national or resident of, any country
+     to which export of the Software is restricted or prohibited by law.
+
+13.7 No Partnership
+     Nothing in this Agreement creates a partnership, joint venture, agency,
+     franchise, or employment relationship between you and the Developer.
+
+13.8 Consumer Rights
+     Nothing in this Agreement affects any non-waivable statutory rights you
+     may have as a consumer under the laws of your country of residence.
+
+13.9 Language
+     This Agreement is written in English. Any translation is for convenience
+     only. In the event of conflict, the English version prevails.
+
+
+14. CONTACT INFORMATION
+================================================================================
+  Developer:  pjecuacion
+  Website:    https://pjecuacion.lemonsqueezy.com/
+  Support:    Available via the website above.
+
+
+================================================================================
+BY INSTALLING OR USING THE SOFTWARE YOU CONFIRM THAT YOU HAVE READ, UNDERSTOOD,
+AND AGREED TO ALL TERMS AND CONDITIONS OF THIS AGREEMENT.
+================================================================================

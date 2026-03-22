@@ -1,0 +1,4 @@
+customtkinter==5.2.2
+# Pillow is NOT included — add it if your app processes images
+pyinstaller==6.14.1
+tkinterdnd2==0.4.3
