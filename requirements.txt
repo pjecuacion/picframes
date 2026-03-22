@@ -1,4 +1,5 @@
 customtkinter==5.2.2
-# Pillow is NOT included — add it if your app processes images
+Pillow>=10.0.0
+rembg>=2.0.50
 pyinstaller==6.14.1
 tkinterdnd2==0.4.3

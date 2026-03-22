@@ -1,5 +1,20 @@
 # Plain Changelog
 
+## 2026-03-23
+
+- Added ICO output format option: the Settings card now lets you choose between PNG (transparent) and ICO (multi-size Windows icon).
+- ICO files embed 6 standard sizes (16, 32, 48, 64, 128, 256 px) in a single file — ready to use as app icons.
+
+## 2026-03-22
+
+- Created PicFrames app: accepts PNG, JPEG, WebP, BMP, and TIFF images.
+- Background removal using AI (powered by rembg/U2Net) — toggle on/off per run.
+- Frame shapes: Circle and Square (free), Rounded Square with configurable corner radius (Pro).
+- Padding slider (0–40 px) adds inset space between subject and frame edge.
+- All outputs are transparent-background PNG files — ideal for app icons and stickers.
+- Thumbnail preview strip in the UI shows selected images before processing.
+- Pro licensing wired in: Rounded Square frame unlocked by PicFrames Pro license key.
+
 ## 2026-03-21
 
 - Established a unified visual identity. All colours, type sizes, and corner radii now come from a single brand token file — changing one value updates the whole app.

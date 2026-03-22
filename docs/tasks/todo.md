@@ -1,5 +1,63 @@
 # Task Todo
 
+## Active Task — PicFrames App Build
+
+Date: 2026-03-22
+Status: In Progress
+
+### Specification
+
+Build a new `picframes/` package from the template. The app:
+- Accepts image files (.png, .jpg, .jpeg, .webp, .bmp, .tiff)
+- Optionally removes the background using `rembg` (AI-powered, toggle, default ON)
+- Center-crops to a square canvas
+- Applies a frame/shape mask: Circle, Square (free), or Rounded Square (Pro)
+- Outputs transparent-background PNG files
+- Use case: app icons, profile pictures, stickers
+
+### Design Decisions
+- Background removal: checkbox toggle, default ON
+- Free frames: Circle, Square
+- Pro frame: Rounded Square + configurable corner radius slider (5–50%)
+- Padding: 0–40px slider (free)
+- Output: always PNG, square canvas (center-crop)
+- Pro feature key: `"rounded_square"`
+
+### Plan
+
+- [x] Read all template files and understand structure
+- [ ] Write plan to docs/tasks/todo.md (this file)
+- [ ] Create `picframes/__init__.py`
+- [ ] Create `picframes/settings.py`
+- [ ] Create `picframes/resources.py`
+- [ ] Create `picframes/theme.py`
+- [ ] Create `picframes/processor.py`
+- [ ] Create `picframes/runner.py`
+- [ ] Create `picframes/option_builder.py`
+- [ ] Create `picframes/app.py`
+- [ ] Create `picframes/license/__init__.py`
+- [ ] Create `picframes/license/key_model.py`
+- [ ] Create `picframes/license/gate.py`
+- [ ] Create `picframes/license/validator.py`
+- [ ] Create `picframes/license/activation_dialog.py`
+- [ ] Create `picframes/ui/__init__.py`
+- [ ] Create `picframes/ui/banner.py`
+- [ ] Create `picframes/ui/hero.py`
+- [ ] Create `picframes/ui/source_card.py`
+- [ ] Create `picframes/ui/output_card.py`
+- [ ] Create `picframes/ui/settings_card.py`
+- [ ] Create `picframes/ui/progress_card.py`
+- [ ] Create `picframes/ui/preview_strip.py`
+- [ ] Update `main.py`
+- [ ] Update `requirements.txt`
+- [ ] Write `tests/unit/test_processor.py`
+- [ ] Update changelogs
+
+### Test Strategy
+- `tests/unit/test_processor.py`: unit tests for `_to_square`, `_apply_padding`, `_get_mask`, `_apply_mask`, `build_jobs`, `discover_files` — all using Pillow, no network, no file I/O except temp files
+
+---
+
 ## Completed Task — Licensing & Monetisation
 
 Date: 2026-03-20

@@ -1,5 +1,32 @@
 # Technical Changelog
 
+## 2026-03-23
+
+- `processor.py`: added `_ICO_SIZES = [(16,16),(32,32),(48,48),(64,64),(128,128),(256,256)]`; `ProcessingOptions.output_format: str = "png"` field; `build_jobs` uses `.ico` extension when `output_format == "ico"`; `_process_file` branches to `_save_ico(img, dst)` or `img.save(dst, "PNG")`; new `_save_ico(img, dst)` upscales to 256 minimum and passes all valid sizes to Pillow's ICO encoder.
+- `option_builder.py`: `build_options` now passes `output_format=settings_card.get_output_format()`.
+- `ui/settings_card.py`: added Output Format segmented button `["PNG", "ICO"]` (rows 1–2); renumbered grid rows 3–10; added `get_output_format()` method.
+- `tests/unit/test_processor.py`: added `TestBuildJobs::test_outputs_as_ico`, `TestProcessFile::test_ico_output_format`, and `TestSaveIco` class (3 tests). Total: 29 tests, all passing.
+
+## 2026-03-22
+
+- Created `picframes/` package (replaces `my_app/` template stub) with the following modules:
+  - `processor.py`: `SUPPORTED_EXTENSIONS` (.png .jpg .jpeg .webp .bmp .tiff .tif), `ProcessingOptions` dataclass (frame_shape, corner_radius_pct, padding, remove_bg, overwrite), `_to_square` (center-crop), `_apply_padding`, `_get_mask` (circle/rounded_square/square), `_apply_mask` (ImageChops.multiply on alpha), `process_single_job` (picklable worker), `build_jobs` (stem + .png output)
+  - `runner.py`: ProcessPoolExecutor with cancellation via threading.Event — unchanged from template
+  - `option_builder.py`: `build_options` reads `get_frame_shape()`, `radius_slider`, `padding_slider`, `remove_bg_checkbox`; `default_output_dir` uses `picframes_output` / `_picframes` suffixes
+  - `settings.py`: persists to `~/.picframes/settings.json`
+  - `app.py`: `PicFramesApp` (CTk + TkinterDnD); APP_TITLE = "PicFrames"
+  - `license/gate.py`: `_PRO_FEATURES = frozenset({"rounded_square"})`
+  - `license/validator.py`: `_INSTANCE_NAME = "PicFrames"`
+  - `license/activation_dialog.py`: Pro feature description updated to mention Rounded Square
+  - `ui/settings_card.py`: segmented button (Circle/Square) + Pro section (rounded_checkbox + radius_slider 5–50%); `get_frame_shape()` method
+  - `ui/preview_strip.py`: threaded thumbnail loader using `PIL.Image.thumbnail` → `CTkImage`; falls back to text labels on error
+  - `ui/source_card.py`: file dialog restricted to image types
+  - `ui/hero.py`: headline "Frame your images beautifully"; button "Apply Frames"
+  - `ui/banner.py`: banner text updated for PicFrames
+- Updated `main.py`: `AppUserModelID` → `"PicFrames.App.1"`, import from `picframes`
+- Updated `requirements.txt`: added `Pillow>=10.0.0`, `rembg>=2.0.50`
+- Added/replaced `tests/unit/test_processor.py`: 20 deterministic unit tests covering `_to_square`, `_apply_padding`, `_get_mask`, `_apply_mask`, `build_jobs`, and `_process_file` (no network, no rembg called)
+
 ## 2026-03-21
 
 - Added `bulk_webp/theme.py`: single source of truth for all brand tokens. Exports semantic colour tuples (`BG`, `SURFACE`, `SURFACE_INSET`, `BANNER_BG`, `BANNER_TEXT`, `ACCENT`, `ACCENT_HOVER`, `ACCENT_MUTED`, `ACCENT_BORDER`, `ACCENT_TEXT`, `TEXT_PRIMARY`, `TEXT_MUTED`, `TEXT_INVERSE`, `TEXT_ON_AMBER`, `BTN_SECONDARY`, `BTN_SECONDARY_HOVER`, `SUCCESS`, `ERROR`, `ERROR_HOVER`, `AMBER`, `AMBER_HOVER`, `AMBER_DARK`, `AMBER_HOVER_DARK`, `PRO_BG`, `PRO_BG_HOVER`), radius constants (`RADIUS_CARD=24`, `RADIUS_INNER=18`, `RADIUS_BTN=14`, `RADIUS_PILL=999`), and a `font(size, weight)` helper wrapping `CTkFont` with family `"Segoe UI"`.
