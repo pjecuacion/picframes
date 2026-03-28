@@ -64,7 +64,8 @@ Use this when building a new app from this template. Check off each item before 
 
 ## Assets
 
-- [ ] `assets/app_icon.ico` replaced with new app icon (or confirmed with user)
+- [ ] Edit `template/gen_icon.py` — set `BG`, `FG`, and `LETTER` for the new app
+- [ ] Run `python template/gen_icon.py` from repo root to regenerate `assets/app_icon.png` and `assets/app_icon.ico`
 - [ ] `assets/THIRD_PARTY_NOTICES.txt` updated if new dependencies added
 - [ ] `docs/EULA.txt` updated with new app name
 
