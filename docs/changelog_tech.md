@@ -1,5 +1,22 @@
 # Technical Changelog
 
+## 2026-03-28
+
+- **Deleted `my_app/`** — entire template stub package removed (18 files).
+- **Deleted `temp/gen_icon.py`** — one-shot icon generation script removed after use.
+- **`assets/app_icon.png` + `assets/app_icon.ico`** — regenerated: amber `#F59E0B` "P" glyph on dark slate `#0f172a` rounded-square canvas; ICO embeds 6 sizes (16/32/48/64/128/256 px).
+- **`packaging/MyApp.spec`** — `name='PicFrames'` in EXE and COLLECT blocks; `console=False`.
+- **`packaging/installer.iss`** — `AppName=PicFrames`, `AppVersion=1.0.0`, `AppPublisher=Prince Ecuacion`, `AppExeName=PicFrames.exe`, `AppId={{485A531B-A164-4A75-9C02-04055CF01149}`, `OutputBaseFilename=PicFrames-Setup`; URL fields removed.
+- **`packaging/build.ps1`** — removed TODO comment from `$specFile` line.
+- **`requirements.txt`** — `rembg>=2.0.50` → `rembg[cpu]>=2.0.50` (ensures `onnxruntime` is pulled in).
+- **`picframes/ui/banner.py`** — `_DONATION_URL = "https://buymeacoffee.com/pjecuacion"`.
+- **`picframes/license/activation_dialog.py`** — `_CHECKOUT_URL` set to real PicFrames Pro LemonSqueezy checkout URL (`f2ce3041-…`).
+- **`assets/THIRD_PARTY_NOTICES.txt`** — header rebranded to PicFrames; added entries 5–7: rembg 2.0.74 (MIT), ONNX Runtime 1.24.4 (MIT), NumPy (BSD 3-Clause).
+- **`docs/EULA.txt`** — global replace "Bulk WebP" → "PicFrames"; "WebP image files" → "image files".
+- **`README.md`** — fully rewritten: describes Circle/Square/Rounded Square framing, rembg AI removal, ICO output, and LemonSqueezy Pro licensing.
+- **`.env`** — `LEMONSQUEEZY_PRODUCT_ID` updated `905495` → `927002` (PicFrames Pro); `LEMONSQUEEZY_VARIANT_ID` updated `1424228` → `1457453`; `LEMONSQUEEZY_CHECKOUT_URL` set to PicFrames checkout URL; `BULK_WEBP_LICENSE_PRIVATE_KEY` renamed to `PICFRAMES_LICENSE_PRIVATE_KEY`; `LEMONSQUEEZY_VARIANT_ID` added.
+- **`tools/issue_license.py`** — fully rewritten: calls `POST /v1/checkouts` with `custom_price: 0` and `checkout_data.email`; reads `.env` automatically via `python-dotenv`-style parser; accepts `--open` flag to open URL in browser. Removed Ed25519 key generation logic entirely.
+
 ## 2026-03-23
 
 - `processor.py`: added `_ICO_SIZES = [(16,16),(32,32),(48,48),(64,64),(128,128),(256,256)]`; `ProcessingOptions.output_format: str = "png"` field; `build_jobs` uses `.ico` extension when `output_format == "ico"`; `_process_file` branches to `_save_ico(img, dst)` or `img.save(dst, "PNG")`; new `_save_ico(img, dst)` upscales to 256 minimum and passes all valid sizes to Pillow's ICO encoder.

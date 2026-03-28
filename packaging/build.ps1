@@ -2,7 +2,7 @@ $ErrorActionPreference = 'Stop'
 
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $distDir = Join-Path $projectRoot 'dist'
-$specFile = Join-Path $PSScriptRoot 'MyApp.spec'  # TODO: rename when you rename the spec file
+$specFile = Join-Path $PSScriptRoot 'MyApp.spec'
 $issScript = Join-Path $PSScriptRoot 'installer.iss'
 
 function Find-InnoSetupCompiler {

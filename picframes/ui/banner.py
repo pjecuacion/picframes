@@ -8,7 +8,7 @@ import customtkinter as ctk
 from .. import theme
 from ..license.key_model import LicenseInfo
 
-_DONATION_URL = "https://buymeacoffee.com/your-username"  # TODO: update before shipping
+_DONATION_URL = "https://buymeacoffee.com/pjecuacion"
 
 
 class BannerFrame(ctk.CTkFrame):

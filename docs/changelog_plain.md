@@ -1,5 +1,18 @@
 # Plain Changelog
 
+## 2026-03-28
+
+- Removed the leftover template `my_app/` folder — the app now runs entirely from `picframes/`.
+- Fixed the build pipeline: spec and installer files now correctly reference PicFrames (version 1.0.0, publisher Prince Ecuacion).
+- Replaced the placeholder "W" icon with a new amber "P" on dark slate rounded-square icon across all sizes (16 → 256 px).
+- Updated the app's donation link to `buymeacoffee.com/pjecuacion`.
+- Updated the in-app "Get Pro" button to link to the real PicFrames Pro LemonSqueezy checkout.
+- Added rembg, ONNX Runtime, and NumPy to the Third-Party Software Notices.
+- Rewrote README for PicFrames: describes frame shapes, AI background removal, ICO output, and Pro licensing.
+- Fixed EULA: replaced all "Bulk WebP" references with "PicFrames".
+- Added `tools/issue_license.py`: dev tool that creates a \$0 LemonSqueezy checkout pre-filled with a customer email, so free/comped Pro keys can be issued without going through the dashboard.
+- Fixed LemonSqueezy integration: product and variant IDs now correctly point to the PicFrames Pro product (not BulkWebP).
+
 ## 2026-03-23
 
 - Added ICO output format option: the Settings card now lets you choose between PNG (transparent) and ICO (multi-size Windows icon).

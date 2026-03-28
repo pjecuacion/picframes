@@ -1,5 +1,5 @@
 END USER LICENSE AGREEMENT
-Bulk WebP — Version 1.0
+PicFrames — Version 1.0
 Effective Date: March 20, 2026
 
 ================================================================================
@@ -9,7 +9,7 @@ IMPORTANT — READ CAREFULLY BEFORE INSTALLING OR USING THIS SOFTWARE
 This End User License Agreement ("Agreement") is a legally binding contract
 between you, either an individual or a single legal entity ("User" or "you"),
 and pjecuacion ("Developer", "we", "us", or "our") governing your use of the
-Bulk WebP software application and any associated documentation ("Software").
+PicFrames software application and any associated documentation ("Software").
 
 BY CLICKING "I AGREE", BY DOWNLOADING, INSTALLING, COPYING, OR USING THE
 SOFTWARE IN ANY WAY, YOU ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT,
@@ -30,7 +30,7 @@ LEGAL ENTITY, YOU REPRESENT THAT YOU HAVE THE AUTHORITY TO BIND THAT ENTITY.
 "License Key" means the unique alphanumeric code issued upon purchase of a Pro
   Edition license.
 "Permitted Device" means a computer system owned or controlled by you.
-"Output Files" means the WebP image files produced by your use of the Software.
+"Output Files" means the image files produced by your use of the Software.
 "Source Files" means the image files you supply to the Software for processing.
 "Effective Date" means the earlier of the date you first download, install, or
   use the Software.

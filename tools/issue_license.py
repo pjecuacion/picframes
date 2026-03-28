@@ -1,72 +1,116 @@
 #!/usr/bin/env python3
-"""Dev tool: generate a BulkWebP Pro license key.
+"""Dev tool: issue a free PicFrames Pro license key via LemonSqueezy.
+
+Creates a $0 checkout URL pre-filled with the customer's email. Visiting the
+URL completes a free order and delivers a real LemonSqueezy license key by
+email, which works with the in-app activation flow.
 
 Usage:
     python tools/issue_license.py user@example.com
-    python tools/issue_license.py user@example.com --expires 2027-12-31
+    python tools/issue_license.py user@example.com --open
 
-Required environment variable:
-    BULK_WEBP_LICENSE_PRIVATE_KEY  — base64-encoded raw 32-byte Ed25519 private key.
-    Store this key in a password manager or secrets vault.  Never commit it to source control.
+Required env vars (load from .env automatically):
+    LEMONSQUEEZY_API_KEY
+    LEMONSQUEEZY_STORE_ID
+    LEMONSQUEEZY_VARIANT_ID
 """
 
 from __future__ import annotations
 
 import argparse
-import base64
 import json
 import os
 import sys
-from datetime import date
+import urllib.request
+import urllib.error
+import webbrowser
+from pathlib import Path
 
 
-def _load_private_key():
-    raw_b64 = os.environ.get("BULK_WEBP_LICENSE_PRIVATE_KEY")
-    if not raw_b64:
-        sys.exit("Error: BULK_WEBP_LICENSE_PRIVATE_KEY env var is not set.")
+def _load_env() -> None:
+    env_file = Path(__file__).parent.parent / ".env"
+    if not env_file.exists():
+        return
+    for line in env_file.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            key, _, value = line.partition("=")
+            os.environ.setdefault(key.strip(), value.strip())
+
+
+def _require_env(name: str) -> str:
+    value = os.environ.get(name)
+    if not value:
+        sys.exit(f"Error: {name} env var is not set. Check your .env file.")
+    return value
+
+
+def _create_checkout(api_key: str, store_id: str, variant_id: str, email: str) -> str:
+    """Create a $0 checkout pre-filled with `email`. Returns the checkout URL."""
+    payload = json.dumps({
+        "data": {
+            "type": "checkouts",
+            "attributes": {
+                "custom_price": 0,
+                "checkout_data": {"email": email},
+                "product_options": {
+                    "receipt_thank_you_note": "Thank you! Your PicFrames Pro license key is below.",
+                },
+            },
+            "relationships": {
+                "store": {"data": {"type": "stores", "id": str(store_id)}},
+                "variant": {"data": {"type": "variants", "id": str(variant_id)}},
+            },
+        }
+    }).encode()
+
+    req = urllib.request.Request(
+        "https://api.lemonsqueezy.com/v1/checkouts",
+        data=payload,
+        method="POST",
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Accept": "application/vnd.api+json",
+            "Content-Type": "application/vnd.api+json",
+        },
+    )
     try:
-        from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
-        return Ed25519PrivateKey.from_private_bytes(base64.b64decode(raw_b64))
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = json.loads(r.read())
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode(errors="replace")
+        sys.exit(f"LemonSqueezy API error {exc.code}: {body}")
     except Exception as exc:
-        sys.exit(f"Error loading private key: {exc}")
+        sys.exit(f"Request failed: {exc}")
 
-
-def _validate_expiry(value: str) -> None:
-    try:
-        date.fromisoformat(value)
-    except ValueError:
-        sys.exit("Error: --expires must be in YYYY-MM-DD format.")
+    return data["data"]["attributes"]["url"]
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Issue a BulkWebP Pro license key")
-    parser.add_argument("email", help="Licensee email address")
+    _load_env()
+
+    parser = argparse.ArgumentParser(
+        description="Issue a free PicFrames Pro license key via LemonSqueezy"
+    )
+    parser.add_argument("email", help="Customer email address")
     parser.add_argument(
-        "--expires",
-        metavar="YYYY-MM-DD",
-        default=None,
-        help="Optional expiry date (omit for a lifetime license)",
+        "--open", action="store_true",
+        help="Open the checkout URL in the browser automatically",
     )
     args = parser.parse_args()
 
-    if args.expires:
-        _validate_expiry(args.expires)
+    api_key = _require_env("LEMONSQUEEZY_API_KEY")
+    store_id = _require_env("LEMONSQUEEZY_STORE_ID")
+    variant_id = _require_env("LEMONSQUEEZY_VARIANT_ID")
 
-    private_key = _load_private_key()
+    print(f"Creating free checkout for {args.email}...")
+    url = _create_checkout(api_key, store_id, variant_id, args.email)
 
-    payload = {
-        "email": args.email,
-        "tier": "pro",
-        "issued_at": date.today().isoformat(),
-        "expires_at": args.expires,
-    }
-    payload_bytes = json.dumps(payload, separators=(",", ":")).encode()
-    sig = private_key.sign(payload_bytes)
+    print(f"\nCheckout URL:\n  {url}\n")
+    print("Share this URL with the customer. Completing it delivers a license key by email.")
 
-    payload_b64 = base64.urlsafe_b64encode(payload_bytes).decode().rstrip("=")
-    sig_b64 = base64.urlsafe_b64encode(sig).decode().rstrip("=")
-
-    print(f"{payload_b64}.{sig_b64}")
+    if args.open:
+        webbrowser.open(url)
 
 
 if __name__ == "__main__":

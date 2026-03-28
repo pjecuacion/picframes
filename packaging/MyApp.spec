@@ -33,7 +33,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='MyApp',  # TODO: rename to your exe name (without .exe)
+    name='PicFrames',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -52,5 +52,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='MyApp',  # TODO: rename to match exe name above
+    name='PicFrames',
 )

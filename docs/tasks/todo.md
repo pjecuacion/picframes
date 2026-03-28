@@ -1,62 +1,37 @@
 # Task Todo
 
-## Active Task — PicFrames App Build
+## Completed — PicFrames Full Branding & Build Pipeline
 
-Date: 2026-03-22
-Status: In Progress
+Date: 2026-03-28
+Status: Complete
 
-### Specification
+### What Was Done
 
-Build a new `picframes/` package from the template. The app:
-- Accepts image files (.png, .jpg, .jpeg, .webp, .bmp, .tiff)
-- Optionally removes the background using `rembg` (AI-powered, toggle, default ON)
-- Center-crops to a square canvas
-- Applies a frame/shape mask: Circle, Square (free), or Rounded Square (Pro)
-- Outputs transparent-background PNG files
-- Use case: app icons, profile pictures, stickers
+- [x] Removed `my_app/` template stub
+- [x] Regenerated app icon (amber "P" on dark slate)
+- [x] Fixed `packaging/MyApp.spec` and `packaging/installer.iss` (all TODOs resolved)
+- [x] Fixed `packaging/build.ps1`
+- [x] Updated `requirements.txt` → `rembg[cpu]`
+- [x] Updated `picframes/ui/banner.py` donation URL
+- [x] Updated `picframes/license/activation_dialog.py` checkout URL
+- [x] Rebranded `assets/THIRD_PARTY_NOTICES.txt` + added rembg/onnxruntime/numpy
+- [x] Rebranded `docs/EULA.txt`
+- [x] Rewrote `README.md`
+- [x] Updated `.env` with correct PicFrames LemonSqueezy IDs (product 927002, variant 1457453)
+- [x] Rewrote `tools/issue_license.py` to use LemonSqueezy `POST /v1/checkouts` API
+- [x] Build pipeline verified: `dist/PicFrames-Setup.exe` produced successfully
 
-### Design Decisions
-- Background removal: checkbox toggle, default ON
-- Free frames: Circle, Square
-- Pro frame: Rounded Square + configurable corner radius slider (5–50%)
-- Padding: 0–40px slider (free)
-- Output: always PNG, square canvas (center-crop)
-- Pro feature key: `"rounded_square"`
+### Review
 
-### Plan
-
-- [x] Read all template files and understand structure
-- [ ] Write plan to docs/tasks/todo.md (this file)
-- [ ] Create `picframes/__init__.py`
-- [ ] Create `picframes/settings.py`
-- [ ] Create `picframes/resources.py`
-- [ ] Create `picframes/theme.py`
-- [ ] Create `picframes/processor.py`
-- [ ] Create `picframes/runner.py`
-- [ ] Create `picframes/option_builder.py`
-- [ ] Create `picframes/app.py`
-- [ ] Create `picframes/license/__init__.py`
-- [ ] Create `picframes/license/key_model.py`
-- [ ] Create `picframes/license/gate.py`
-- [ ] Create `picframes/license/validator.py`
-- [ ] Create `picframes/license/activation_dialog.py`
-- [ ] Create `picframes/ui/__init__.py`
-- [ ] Create `picframes/ui/banner.py`
-- [ ] Create `picframes/ui/hero.py`
-- [ ] Create `picframes/ui/source_card.py`
-- [ ] Create `picframes/ui/output_card.py`
-- [ ] Create `picframes/ui/settings_card.py`
-- [ ] Create `picframes/ui/progress_card.py`
-- [ ] Create `picframes/ui/preview_strip.py`
-- [ ] Update `main.py`
-- [ ] Update `requirements.txt`
-- [ ] Write `tests/unit/test_processor.py`
-- [ ] Update changelogs
-
-### Test Strategy
-- `tests/unit/test_processor.py`: unit tests for `_to_square`, `_apply_padding`, `_get_mask`, `_apply_mask`, `build_jobs`, `discover_files` — all using Pillow, no network, no file I/O except temp files
+Build produces a working installer. LemonSqueezy license issuance via `issue_license.py` creates valid `$0` checkout URLs pointing to the PicFrames Pro product. All checklist items from `new_app_checklist.md` resolved.
 
 ---
+
+## Previous Task — PicFrames App Build
+
+Date: 2026-03-22
+Status: Complete
+
 
 ## Completed Task — Licensing & Monetisation
 

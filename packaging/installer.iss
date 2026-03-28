@@ -1,9 +1,9 @@
-#define AppName "My App"               ; TODO: your app display name
-#define AppVersion "1.0.0"              ; TODO: initial version
-#define AppPublisher "your-username"    ; TODO: shown in Add/Remove Programs
-#define AppURL "https://your-store.lemonsqueezy.com/"  ; TODO: publisher URL
-#define AppExeName "MyApp.exe"          ; TODO: must match name= in MyApp.spec
-#define AppId "{{00000000-0000-0000-0000-000000000000}}"  ; TODO: generate a new GUID — NEVER reuse one
+#define AppName "PicFrames"
+#define AppVersion "1.0.0"
+#define AppPublisher "Prince Ecuacion"
+#define AppURL ""
+#define AppExeName "PicFrames.exe"
+#define AppId "{{485A531B-A164-4A75-9C02-04055CF01149}"
 
 #ifndef ProjectRoot
   #define ProjectRoot ".."
@@ -15,22 +15,19 @@
 
 #define AppIconPath AddBackslash(ProjectRoot) + "assets\\app_icon.ico"
 #define EULAPath AddBackslash(ProjectRoot) + "docs\\EULA.txt"
-#define SourceDir AddBackslash(DistDir) + "MyApp"  ; TODO: rename to match COLLECT name= in spec
+#define SourceDir AddBackslash(DistDir) + "PicFrames"
 
 [Setup]
 AppId={#AppId}
 AppName={#AppName}
 AppVersion={#AppVersion}
 AppPublisher={#AppPublisher}
-AppPublisherURL={#AppURL}
-AppSupportURL={#AppURL}
-AppUpdatesURL={#AppURL}
 DefaultDirName={autopf}\{#AppName}
 DefaultGroupName={#AppName}
 UninstallDisplayIcon={app}\{#AppExeName}
 SetupIconFile={#AppIconPath}
 OutputDir={#DistDir}
-OutputBaseFilename=MyApp-Setup  ; TODO: rename
+OutputBaseFilename=PicFrames-Setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern

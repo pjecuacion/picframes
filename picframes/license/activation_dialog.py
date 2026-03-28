@@ -8,8 +8,7 @@ import customtkinter as ctk
 from .. import theme
 from .key_model import LicenseInfo
 
-# TODO: Replace with the PicFrames Pro LemonSqueezy checkout URL.
-_CHECKOUT_URL = "https://your-store.lemonsqueezy.com/checkout/buy/YOUR-PRODUCT-GUID"
+_CHECKOUT_URL = "https://pjecuacion.lemonsqueezy.com/checkout/buy/f2ce3041-9cc4-4e7a-b9c4-42e13dbaf2e5"
 
 
 class ActivationDialog(ctk.CTkToplevel):

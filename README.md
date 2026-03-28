@@ -1,37 +1,42 @@
-# Bulk WebP
+# PicFrames
 
-Bulk WebP is a Windows-friendly Python desktop app for converting single images, multiple selected files, or whole folders into WebP.
+PicFrames is a Windows desktop app for framing images with circle, square, or rounded-square masks — with optional AI-powered background removal. It processes single files, multi-file selections, or whole folders in bulk, always outputting transparent PNGs.
 
 ## Minimum Requirements
 
 - Windows 10 or Windows 11
-- Python 3.12 when running from source
+- Python 3.12+ when running from source
 - `pip` with the ability to install packages from `requirements.txt`
-- A standard Windows Pillow wheel with WebP support
 
 ## Minimum Build Requirements
 
 - Windows 10 or Windows 11
-- Python 3.12
+- Python 3.12+
 - `pip install -r requirements.txt`
-- Inno Setup 6 if you want to generate `dist/BulkWebP-Setup.exe`
+- Inno Setup 6 if you want to generate `dist/PicFrames-Setup.exe`
 
 ## Features
 
-- Clean desktop UI with a minimalist layout.
-- Single-file and multi-file conversion.
-- Bulk folder conversion with optional recursive scanning.
+- Circle, square, and rounded-square frame shapes.
+- Adjustable padding and corner radius (rounded square is Pro-only).
+- AI-powered background removal via `rembg` (toggle on/off).
 - Drag-and-drop support for files and folders.
-- Optional folder structure preservation in the output.
-- Optional lossless WebP output.
-- Optional resize-to-fit width and height controls.
-- Clickable Buy Me a Coffee banner at the top of the app.
+- Bulk folder processing.
+- Output always saved as transparent PNG.
+- Optional ICO output for generating app icons.
+- Light/dark mode toggle.
+- Pro license activation via LemonSqueezy.
 - Packaging workflow for a standalone Windows executable and installer.
-- Dedicated app icon wired into the app window and Windows packaging.
 
 ## Run Locally
 
-1. Create or activate a Python 3.12 virtual environment.
+1. Create a virtual environment and activate it:
+
+   ```powershell
+   python -m venv .venv
+   .venv\Scripts\Activate.ps1
+   ```
+
 2. Install dependencies:
 
    ```powershell
@@ -64,13 +69,13 @@ python -m unittest discover -s tests
    ```
 
 3. Outputs:
-- `dist/BulkWebP/BulkWebP.exe`
-- `dist/BulkWebP-Setup.exe`
+   - `dist/PicFrames/PicFrames.exe` (portable)
+   - `dist/PicFrames-Setup.exe` (installer)
 
-If Inno Setup is not installed yet, the PyInstaller build still produces `dist/BulkWebP/` and `dist/BulkWebP.exe`, which can be shared directly as a portable build until the installer is generated.
+If Inno Setup is not installed, the PyInstaller build still produces `dist/PicFrames/` which can be shared directly as a portable build.
 
 ## Notes
 
-- The app defaults output into a sibling folder if you do not choose one explicitly.
-- Pillow must be built with WebP support, which is included in standard wheels on Windows.
-- The installer step depends on `ISCC.exe` from Inno Setup being available on the build machine.
+- Background removal uses `rembg` with a 176 MB ONNX model downloaded on first use.
+- Output is always a 32-bit RGBA PNG regardless of input format.
+- Settings (last-used folder, theme preference) persist in `~/.picframes/settings.json`.
