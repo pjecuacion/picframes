@@ -64,7 +64,7 @@ class PicFramesApp(ctk.CTk, TkinterDnD.DnDWrapper):
         )
         self._banner.grid(row=0, column=0, sticky="ew")
 
-        body = ctk.CTkFrame(self, fg_color="transparent")
+        body = ctk.CTkScrollableFrame(self, fg_color="transparent")
         body.grid(row=1, column=0, sticky="nsew", padx=28, pady=28)
         body.grid_columnconfigure(0, weight=1)
 

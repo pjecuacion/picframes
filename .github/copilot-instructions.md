@@ -1,5 +1,7 @@
 # Full Operational Rulebook
 
+don't just say "yes" and agree with me. feel free to suggest the best outcome, debate, or correct me. 
+
 0. File & Directory Constraints
 - Never create .md files in the repository root.
 - All .md files must live under docs/.
@@ -201,8 +203,53 @@ Each test file begins with:
   - Easy to refactor
   - Easy to delete
 
-15. Versioning System
-- The project version is the single source of truth; it lives in `picframes/__init__.py` as `__version__ = "MAJOR.MINOR.PATCH"`.
+15. Standard Batch Files
+Every project must maintain these bat files in the repository root:
+
+- **start.bat** — Activates `.venv` (if present) and runs `main.py`.
+  ```bat
+  @echo off
+  if exist "%~dp0.venv\Scripts\activate.bat" (
+      call "%~dp0.venv\Scripts\activate.bat"
+  )
+  python "%~dp0main.py"
+  ```
+
+- **start_dev.bat** — Same as `start.bat` but sets dev/debug environment variables before launch.
+  ```bat
+  @echo off
+  echo [DEV] <AppName> starting in dev mode
+  set <APP>_DEV_PRO=1
+  if exist "%~dp0.venv\Scripts\activate.bat" (
+      call "%~dp0.venv\Scripts\activate.bat"
+  )
+  python "%~dp0main.py"
+  ```
+
+- **build_release.bat** — Delegates to `build_release.ps1` with execution policy bypass.
+  ```bat
+  @echo off
+  setlocal
+  powershell -ExecutionPolicy Bypass -File "%~dp0build_release.ps1"
+  set EXIT_CODE=%ERRORLEVEL%
+  endlocal & exit /b %EXIT_CODE%
+  ```
+
+Rules:
+- Always use `%~dp0` for paths (relative to the bat file, not cwd).
+- Never hardcode absolute paths.
+- Build logic lives in `build_release.ps1`; the bat is just a launcher.
+- Dev mode flags must be clearly echoed so the user knows the mode.
+- The project must include a `requirements.txt`. Developers set up the environment with:
+  ```
+  python -m venv .venv
+  .venv\Scripts\activate
+  pip install -r requirements.txt
+  ```
+- Pin the Python interpreter version in `.python-version` (e.g., `3.11.9`) so all contributors and CI use the same version.
+
+16. Versioning System
+- The project version is the single source of truth; it lives in `<app>/__init__.py` as `__version__ = "MAJOR.MINOR.PATCH"`.
 - Follow Semantic Versioning (SemVer 2.0.0):
   - MAJOR: breaking changes or incompatible API changes.
   - MINOR: new backward-compatible features.
@@ -214,7 +261,7 @@ Each test file begins with:
 - Every version bump MUST be accompanied by:
   - An entry in `docs/changelog_plain.md` (human-readable: what changed and why).
   - An entry in `docs/changelog_tech.md` (technical: files changed, function signatures, migration notes).
-  - Updated `__version__` in `picframes/__init__.py`.
+  - Updated `__version__` in `<app>/__init__.py`.
 - Changelog entry format for `docs/changelog_plain.md`:
   ```
   ## [MAJOR.MINOR.PATCH] - YYYY-MM-DD
@@ -230,8 +277,8 @@ Each test file begins with:
 - Never ship a feature, fix, or breaking change without a version bump.
 - Do not bump the version without updating both changelogs.
 - The version must be propagated to ALL platform-appropriate surfaces:
-  - **Windows installer** (`packaging/installer.iss`): update the `AppVersion` field and check `docs/EULA.txt` for any version string in the legal text (e.g., the title line `PicFrames — Version X.Y`).
-  - **Python package** (`picframes/__init__.py`): `__version__` (always required).
+  - **Windows installer** (`packaging/installer.iss`): update the `AppVersion` field and check `docs/EULA.txt` for any version string in the legal text.
+  - **Python package** (`<app>/__init__.py`): `__version__` (always required).
   - **Web app** (if applicable): update the version displayed in the UI footer, `package.json`, or equivalent manifest.
   - **macOS app** (if applicable): update `CFBundleShortVersionString` in `Info.plist`.
   - **Any other build artifact** that embeds a version string must be updated in the same commit.
