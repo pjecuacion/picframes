@@ -62,11 +62,23 @@ class SettingsCard(ctk.CTkFrame):
         self.remove_bg_checkbox.select()
         self.remove_bg_checkbox.grid(row=7, column=0, padx=22, pady=(0, 14), sticky="w")
 
+        # Fit mode selector
+        ctk.CTkLabel(
+            self, text="Fill Mode", font=theme.font(14, "bold"), text_color=theme.TEXT_PRIMARY,
+        ).grid(row=8, column=0, padx=22, pady=(0, 6), sticky="w")
+
+        self._fit_mode_var = ctk.StringVar(value="Crop")
+        ctk.CTkSegmentedButton(
+            self,
+            values=["Crop", "Fit"],
+            variable=self._fit_mode_var,
+        ).grid(row=9, column=0, padx=22, pady=(0, 18), sticky="w")
+
         # Pro: Rounded Square + corner radius
         pro_frame = ctk.CTkFrame(
             self, fg_color=theme.SURFACE_INSET, corner_radius=theme.RADIUS_INNER,
         )
-        pro_frame.grid(row=8, column=0, padx=22, pady=(0, 14), sticky="ew")
+        pro_frame.grid(row=10, column=0, padx=22, pady=(0, 14), sticky="ew")
         pro_frame.grid_columnconfigure(0, weight=1)
 
         self.rounded_checkbox = ctk.CTkCheckBox(
@@ -93,13 +105,13 @@ class SettingsCard(ctk.CTkFrame):
             self, text="Scan subfolders when using folder mode", font=theme.font(13),
         )
         self.recursive_checkbox.select()
-        self.recursive_checkbox.grid(row=9, column=0, padx=22, pady=6, sticky="w")
+        self.recursive_checkbox.grid(row=11, column=0, padx=22, pady=6, sticky="w")
 
         self.overwrite_checkbox = ctk.CTkCheckBox(
             self, text="Overwrite existing output files", font=theme.font(13),
         )
         self.overwrite_checkbox.select()
-        self.overwrite_checkbox.grid(row=10, column=0, padx=22, pady=(6, 18), sticky="w")
+        self.overwrite_checkbox.grid(row=12, column=0, padx=22, pady=(6, 18), sticky="w")
 
         self._sync_pro_state()
 
@@ -112,6 +124,10 @@ class SettingsCard(ctk.CTkFrame):
     def get_output_format(self) -> str:
         """Return 'png' or 'ico'."""
         return self._output_format_var.get().lower()
+
+    def get_fit_to_frame(self) -> bool:
+        """Return True when Fit mode is selected."""
+        return self._fit_mode_var.get() == "Fit"
 
     def _on_padding_change(self, value: float) -> None:
         self.padding_label.configure(text=f"Padding: {int(value)} px")

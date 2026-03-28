@@ -14,6 +14,7 @@ def build_options(settings_card) -> ProcessingOptions:
         remove_bg=bool(settings_card.remove_bg_checkbox.get()),
         output_format=settings_card.get_output_format(),
         overwrite=bool(settings_card.overwrite_checkbox.get()),
+        fit_to_frame=settings_card.get_fit_to_frame(),
     )
 
 

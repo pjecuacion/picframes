@@ -200,3 +200,41 @@ Each test file begins with:
   - Easy to test
   - Easy to refactor
   - Easy to delete
+
+15. Versioning System
+- The project version is the single source of truth; it lives in `picframes/__init__.py` as `__version__ = "MAJOR.MINOR.PATCH"`.
+- Follow Semantic Versioning (SemVer 2.0.0):
+  - MAJOR: breaking changes or incompatible API changes.
+  - MINOR: new backward-compatible features.
+  - PATCH: backward-compatible bug fixes.
+- Version bump rules:
+  - Bug fix → bump PATCH.
+  - New feature → bump MINOR, reset PATCH to 0.
+  - Breaking change → bump MAJOR, reset MINOR and PATCH to 0.
+- Every version bump MUST be accompanied by:
+  - An entry in `docs/changelog_plain.md` (human-readable: what changed and why).
+  - An entry in `docs/changelog_tech.md` (technical: files changed, function signatures, migration notes).
+  - Updated `__version__` in `picframes/__init__.py`.
+- Changelog entry format for `docs/changelog_plain.md`:
+  ```
+  ## [MAJOR.MINOR.PATCH] - YYYY-MM-DD
+  ### Added / Changed / Fixed / Removed
+  - Description of change.
+  ```
+- Changelog entry format for `docs/changelog_tech.md`:
+  ```
+  ## [MAJOR.MINOR.PATCH] - YYYY-MM-DD
+  - Files changed: <list>
+  - Summary of technical changes, API diffs, migration steps.
+  ```
+- Never ship a feature, fix, or breaking change without a version bump.
+- Do not bump the version without updating both changelogs.
+- The version must be propagated to ALL platform-appropriate surfaces:
+  - **Windows installer** (`packaging/installer.iss`): update the `AppVersion` field and check `docs/EULA.txt` for any version string in the legal text (e.g., the title line `PicFrames — Version X.Y`).
+  - **Python package** (`picframes/__init__.py`): `__version__` (always required).
+  - **Web app** (if applicable): update the version displayed in the UI footer, `package.json`, or equivalent manifest.
+  - **macOS app** (if applicable): update `CFBundleShortVersionString` in `Info.plist`.
+  - **Any other build artifact** that embeds a version string must be updated in the same commit.
+- Pre-release versions use the suffix `-alpha.N`, `-beta.N`, or `-rc.N` (e.g., `1.2.0-rc.1`).
+- Release commits must be tagged: `git tag v<version>` (e.g., `v1.2.0`). Ask the user before pushing tags.
+- When asked to "release" or "cut a version": bump the version, update changelogs, propagate to all surfaces, then confirm with the user before tagging or pushing.

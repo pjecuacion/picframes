@@ -22,6 +22,7 @@ class ProcessingOptions:
     remove_bg: bool = True
     output_format: str = "png"       # "png" | "ico"
     overwrite: bool = True
+    fit_to_frame: bool = False       # False=crop to square, True=letterbox into square
 
 
 @dataclass(frozen=True)
@@ -77,12 +78,16 @@ def build_jobs(
 
 def process_single_job(job: ProcessingJob, options: ProcessingOptions) -> ProcessingResult:
     """Top-level picklable worker called by ProcessPoolExecutor."""
+    import logging
+    import traceback
+    _log = logging.getLogger(__name__)
     try:
         if job.destination.exists() and not options.overwrite:
             return ProcessingResult(job.source, job.destination, "skipped", "Destination exists")
         _process_file(job.source, job.destination, options)
         return ProcessingResult(job.source, job.destination, "processed")
     except Exception as exc:
+        _log.error("process_single_job failed for %s:\n%s", job.source, traceback.format_exc())
         return ProcessingResult(job.source, job.destination, "failed", str(exc))
 
 
@@ -94,7 +99,7 @@ def _process_file(source: Path, destination: Path, options: ProcessingOptions) -
         from rembg import remove
         img = remove(img)
 
-    img = _to_square(img)
+    img = _to_square(img, fit=options.fit_to_frame)
     size = img.width
 
     if options.padding > 0:
@@ -124,16 +129,24 @@ def _save_ico(img, destination: Path) -> None:
     base.save(destination, format="ICO", sizes=sizes)
 
 
-def _to_square(img) -> object:
-    """Center-crop the image to a square."""
+def _to_square(img, fit: bool = False) -> object:
+    """Make the image square by cropping (fit=False) or letterboxing (fit=True)."""
     from PIL import Image
     w, h = img.width, img.height
     if w == h:
         return img
-    short = min(w, h)
-    left = (w - short) // 2
-    top = (h - short) // 2
-    return img.crop((left, top, left + short, top + short))
+    if not fit:
+        short = min(w, h)
+        left = (w - short) // 2
+        top = (h - short) // 2
+        return img.crop((left, top, left + short, top + short))
+    # Letterbox: place image centred on a square canvas, transparent margins.
+    size = max(w, h)
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    offset_x = (size - w) // 2
+    offset_y = (size - h) // 2
+    canvas.paste(img, (offset_x, offset_y), img)
+    return canvas
 
 
 def _apply_padding(img, padding: int) -> object:
