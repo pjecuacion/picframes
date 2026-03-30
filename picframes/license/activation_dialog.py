@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import webbrowser
 from typing import Callable
 
@@ -8,7 +9,10 @@ import customtkinter as ctk
 from .. import theme
 from .key_model import LicenseInfo
 
-_CHECKOUT_URL = "https://pjecuacion.lemonsqueezy.com/checkout/buy/f2ce3041-9cc4-4e7a-b9c4-42e13dbaf2e5"
+_CHECKOUT_URL = os.environ.get(
+    "LEMONSQUEEZY_CHECKOUT_URL",
+    "https://pjecuacion.lemonsqueezy.com/checkout/buy/23a0f5a9-4f13-445d-baac-71b0052d5e71",
+)
 
 
 class ActivationDialog(ctk.CTkToplevel):

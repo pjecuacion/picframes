@@ -1,6 +1,6 @@
 # Brand System
 
-This document is the single source of truth for the studio's visual identity as applied to Windows desktop tools. All token values live in `bulk_webp/theme.py`. Every future app in the suite should copy that file and adjust only what differs for that product.
+This document is the single source of truth for the studio's visual identity as applied to Windows desktop tools. All token values live in `picframes/theme.py`. Every future app in the suite should copy that file and adjust only what differs for that product.
 
 ---
 
