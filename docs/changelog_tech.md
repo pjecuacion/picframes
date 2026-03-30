@@ -1,5 +1,13 @@
 # Technical Changelog
 
+## [1.1.0] - 2026-03-30
+- Files changed: `picframes/license/gate.py`, `picframes/license/__init__.py`, `picframes/ui/settings_card.py`, `picframes/app.py`, `picframes/__init__.py`, `packaging/installer.iss`, `lemonsqueezy/product_page.md`
+- `gate.py`: `_PRO_FEATURES` expanded to `{"rounded_square", "ico", "ai_removal"}`; added `FREE_BATCH_LIMIT: int = 10`.
+- `license/__init__.py`: exports `FREE_BATCH_LIMIT`.
+- `settings_card.py`: `_output_format_btn` stored as instance variable; initial values `["PNG", "ICO  (Pro)"]`; `get_output_format` uses `.split()[0]` to strip Pro suffix; `remove_bg_checkbox` starts deselected/disabled; `apply_license_state` enables/disables ICO button values and AI removal checkbox.
+- `app.py`: imports `FREE_BATCH_LIMIT`; stores `self._license_info`; `_apply_license` sets `_license_info`; `_run_job` enforces batch cap with warning dialog.
+- Version bumped 1.0.0 → 1.1.0.
+
 ## 2026-03-28
 
 - **Deleted `my_app/`** — entire template stub package removed (18 files).

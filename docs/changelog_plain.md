@@ -1,5 +1,12 @@
 # Plain Changelog
 
+## [1.1.0] - 2026-03-30
+### Added
+- AI background removal is now a Pro-only feature. Free tier shows the option as disabled.
+- ICO export is now Pro-only. Free tier is locked to PNG output.
+- Free tier batch limit: processes a maximum of 10 images per run. Pro is unlimited.
+- Updated product page copy to reflect the four Pro features at $14.
+
 ## 2026-03-28
 
 - Removed the leftover template `my_app/` folder — the app now runs entirely from `picframes/`.

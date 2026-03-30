@@ -24,11 +24,12 @@ class SettingsCard(ctk.CTkFrame):
         ).grid(row=1, column=0, padx=22, pady=(0, 6), sticky="w")
 
         self._output_format_var = ctk.StringVar(value="PNG")
-        ctk.CTkSegmentedButton(
+        self._output_format_btn = ctk.CTkSegmentedButton(
             self,
-            values=["PNG", "ICO"],
+            values=["PNG", "ICO  (Pro)"],
             variable=self._output_format_var,
-        ).grid(row=2, column=0, padx=22, pady=(0, 18), sticky="w")
+        )
+        self._output_format_btn.grid(row=2, column=0, padx=22, pady=(0, 18), sticky="w")
 
         # Frame shape selector (free: Circle, Square)
         ctk.CTkLabel(
@@ -57,9 +58,8 @@ class SettingsCard(ctk.CTkFrame):
 
         # Remove background toggle
         self.remove_bg_checkbox = ctk.CTkCheckBox(
-            self, text="Remove background (AI-powered)", font=theme.font(13),
+            self, text="Remove background — AI-powered  (Pro)", font=theme.font(13),
         )
-        self.remove_bg_checkbox.select()
         self.remove_bg_checkbox.grid(row=7, column=0, padx=22, pady=(0, 14), sticky="w")
 
         # Fit mode selector
@@ -122,8 +122,8 @@ class SettingsCard(ctk.CTkFrame):
         return self._frame_shape_var.get().lower()
 
     def get_output_format(self) -> str:
-        """Return 'png' or 'ico'."""
-        return self._output_format_var.get().lower()
+        """Return 'png' or 'ico'. Handles '(Pro)' suffix on free tier."""
+        return self._output_format_var.get().lower().split()[0]
 
     def get_fit_to_frame(self) -> bool:
         """Return True when Fit mode is selected."""
@@ -143,7 +143,14 @@ class SettingsCard(ctk.CTkFrame):
         """Enable or disable Pro-gated controls based on license tier."""
         if is_pro:
             self.rounded_checkbox.configure(state="normal", text="Rounded Square")
+            self._output_format_btn.configure(values=["PNG", "ICO"])
+            self.remove_bg_checkbox.configure(state="normal", text="Remove background — AI-powered")
+            self.remove_bg_checkbox.select()
         else:
             self.rounded_checkbox.deselect()
             self.rounded_checkbox.configure(state="disabled", text="Rounded Square  (Pro)")
+            self._output_format_var.set("PNG")
+            self._output_format_btn.configure(values=["PNG", "ICO  (Pro)"])
+            self.remove_bg_checkbox.deselect()
+            self.remove_bg_checkbox.configure(state="disabled", text="Remove background — AI-powered  (Pro)")
         self._sync_pro_state()

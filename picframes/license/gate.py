@@ -1,8 +1,8 @@
 from __future__ import annotations
 from .key_model import LicenseInfo
 
-# "rounded_square" is the Pro-gated frame shape in PicFrames.
-_PRO_FEATURES: frozenset[str] = frozenset({"rounded_square"})
+_PRO_FEATURES: frozenset[str] = frozenset({"rounded_square", "ico", "ai_removal"})
+FREE_BATCH_LIMIT: int = 10
 
 
 def can_use(feature: str, license_info: LicenseInfo | None) -> bool:

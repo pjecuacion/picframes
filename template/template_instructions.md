@@ -83,7 +83,17 @@ from <new_package> import main
 
 ---
 
-## 6. Verify Before Done
+## 6. LemonSqueezy Product Page
+
+Update `lemonsqueezy/product_page.md` before publishing:
+- Replace the headline, subheadline, and Pro feature bullets with the new app's details.
+- Set the real price (remove the `$[X]` placeholder).
+- Copy the final text into the LemonSqueezy product description field.
+- Update `license/activation_dialog.py` with the new product checkout URL.
+
+---
+
+## 7. Verify Before Done
 
 - Run `main.py` and confirm the window opens, the banner shows the correct app name, and the core feature works end-to-end.
 - Run existing tests and add unit tests for any new business logic under `tests/unit/`.

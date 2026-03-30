@@ -1,4 +1,4 @@
-# Purpose: Unit tests for my_app.license.validator (LemonSqueezy API backend)
+# Purpose: Unit tests for picframes.license.validator (LemonSqueezy API backend)
 # Expected behavior: valid LS API responses parse to LicenseInfo; errors/invalid states return None
 # Related: feature/licensing implementation
 # Preconditions: No network access needed — HTTP calls are mocked
@@ -10,8 +10,8 @@ import json
 from datetime import date, timedelta
 from unittest.mock import MagicMock, patch
 
-from my_app.license.key_model import LicenseInfo
-from my_app.license.validator import validate_key, _call_ls
+from picframes.license.key_model import LicenseInfo
+from picframes.license.validator import validate_key, _call_ls
 
 
 # ---------------------------------------------------------------------------
@@ -127,17 +127,17 @@ def test_validate_fallback_used_on_activate_failure():
 # ---------------------------------------------------------------------------
 
 def test_free_feature_always_accessible():
-    from my_app.license.gate import can_use
+    from picframes.license.gate import can_use
     assert can_use("free_feature", None) is True
     assert can_use("another_free", None) is True
 
 
 def test_pro_feature_blocked_without_license():
-    from my_app.license.gate import can_use
-    assert can_use("pro_feature", None) is False
+    from picframes.license.gate import can_use
+    assert can_use("rounded_square", None) is False
 
 
 def test_pro_feature_accessible_with_valid_license():
-    from my_app.license.gate import can_use
+    from picframes.license.gate import can_use
     info = LicenseInfo(email="a@b.com", tier="pro", issued_at="2026-01-01", expires_at=None)
-    assert can_use("pro_feature", info) is True
+    assert can_use("rounded_square", info) is True

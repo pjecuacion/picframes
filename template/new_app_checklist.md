@@ -82,6 +82,13 @@ Use this when building a new app from this template. Check off each item before 
 - [ ] `temp/` cleared (source app files removed, `.gitkeep` left in place)
 - [ ] `README.md` updated for new app
 
+## LemonSqueezy
+
+- [ ] `lemonsqueezy/product_page.md` — headline, subheadline, and Pro feature bullets updated for new app
+- [ ] `lemonsqueezy/product_page.md` — pricing placeholder `$[X]` replaced with real price
+- [ ] `lemonsqueezy/product_page.md` — copy pasted into LemonSqueezy product description field
+- [ ] `license/activation_dialog.py` — checkout URL updated with new product GUID
+
 ## Smoke Tests
 
 - [ ] App launches without errors (`python main.py`)

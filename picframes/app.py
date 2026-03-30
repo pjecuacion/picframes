@@ -14,7 +14,7 @@ from .option_builder import build_options, default_output_dir, resolve_sources
 from .resources import asset_path
 from . import settings as app_settings
 from . import theme
-from .license import LicenseInfo, validate_key
+from .license import LicenseInfo, validate_key, FREE_BATCH_LIMIT
 from .license.activation_dialog import ActivationDialog
 from .ui import BannerFrame, HeroSection, OutputCard, PreviewStrip, ProgressCard, SettingsCard, SourceCard
 
@@ -41,6 +41,7 @@ class PicFramesApp(ctk.CTk, TkinterDnD.DnDWrapper):
         self.output_dir: Path | None = None
         self.is_running = False
         self._cancel_event: threading.Event | None = None
+        self._license_info: LicenseInfo | None = None
         self._build_ui()
         self._init_drag_and_drop()
         self._sync_view()
@@ -125,6 +126,7 @@ class PicFramesApp(ctk.CTk, TkinterDnD.DnDWrapper):
         app_settings.save(self._settings)
 
     def _apply_license(self, info: LicenseInfo | None) -> None:
+        self._license_info = info
         self._banner.update_license(info)
         self._settings_card.apply_license_state(info is not None and info.is_pro)
 
@@ -191,6 +193,15 @@ class PicFramesApp(ctk.CTk, TkinterDnD.DnDWrapper):
         if not sources:
             messagebox.showinfo(APP_TITLE, "Select at least one image or a folder containing images.")
             return
+        is_pro = self._license_info is not None and self._license_info.is_pro
+        if not is_pro and len(sources) > FREE_BATCH_LIMIT:
+            sources = sources[:FREE_BATCH_LIMIT]
+            messagebox.showwarning(
+                APP_TITLE,
+                f"Free tier is limited to {FREE_BATCH_LIMIT} images per batch.\n"
+                "Upgrade to Pro for unlimited batch processing.\n\n"
+                f"Processing the first {FREE_BATCH_LIMIT} images only.",
+            )
         out = self.output_dir or default_output_dir(mode, self.selected_files, self.selected_folder)
         if out is None:
             messagebox.showerror(APP_TITLE, "Unable to determine an output folder.")
